@@ -12,10 +12,10 @@ class CustomBuildExtCommand(build_py):
     """Customized setuptools install command - prints a friendly greeting."""
 
     def buildInkscapeExt(self):
-        os.system("{} {} {}".format(sys.executable, os.path.join("scripts", "boxes2inkscape"), "inkex"))
+        os.system("{} {} {}".format('"'+sys.executable+'"', os.path.join("scripts", "boxes2inkscape"), "inkex"))
 
     def updatePOT(self):
-        os.system("{} {} {}".format(sys.executable, os.path.join("scripts", "boxes2pot"), "po/boxes.py.pot"))
+        os.system("{} {} {}".format('"'+sys.executable+'"', os.path.join("scripts", "boxes2pot"), "po/boxes.py.pot"))
         os.system("{} {}".format("xgettext -L Python -j --from-code=utf-8 -o po/boxes.py.pot", "boxes/*.py scripts/boxesserver scripts/boxes"))
 
     def generate_mo_files(self):
